@@ -57,9 +57,9 @@ body {
     border-radius: 5px;
 }
 
-.loader, .error {
+/* .loader, .error {
     display: none;
-}
+} */
 
 .error {
     color: red;

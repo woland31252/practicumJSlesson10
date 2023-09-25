@@ -4,15 +4,20 @@
 // });
 // axios.defaults.headers.common['x-api-key'] =
 //   'live_eFQNzE6t9Yns8DpBqOnhUKvvvHPrVTd4nqMp4HJQUHmfMUGURXupaEMIop0eMOzH';
-const url = `https://api.thecatapi.com/v1/breeds`;
+const url = `https://api.thecatapi.com/v1`;
 const key = {
   headers: {
     'x-api-key':
       'live_eFQNzE6t9Yns8DpBqOnhUKvvvHPrVTd4nqMp4HJQUHmfMUGURXupaEMIop0eMOzH',
   },
 };
-function fetchCats() {
-  return fetch(url, key).then((response) =>response.json())
-    .then((data) => console.log(data));
+function fetchBreeds() {
+  const breedsID = `${url}/breeds`
+  return fetch(breedsID, key)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(response.status)
+      } return response.json()
+    })
 }
-export default fetchCats;
+export default fetchBreeds;

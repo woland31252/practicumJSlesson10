@@ -1,6 +1,7 @@
-import fetchBreeds from "./api.js";
+import { fetchBreeds, fetchCatByBreed } from "./api.js";
 
 const select = document.querySelector(".breed-select");
+const catinfo = document.querySelector(".cat-info")
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
@@ -23,6 +24,16 @@ function updateBreedList(markup) {
 function createMarkup({ id, name }) {
     return `<option id="${id}">${name}</option>`;
 }
+
+select.addEventListener("change", onChangeBreed);
+
+function onChangeBreed(event) {
+  const breedID = event.currentTarget.value
+  fetchCatByBreed(breedID)
+    .then(data => console.log(data))
+    // .then(updateBreedList)
+    .catch(onError);
+};
 
 function onError() {
     error.classList.toggle('is-hidden');

@@ -11,13 +11,24 @@ const key = {
       'live_eFQNzE6t9Yns8DpBqOnhUKvvvHPrVTd4nqMp4HJQUHmfMUGURXupaEMIop0eMOzH',
   },
 };
+
 function fetchBreeds() {
-  const breedsID = `${url}/breeds`
-  return fetch(breedsID, key)
+  const breeds = `${url}/breeds`
+  return fetch(breeds, key)
     .then(response => {
       if (!response.ok) {
         throw new Error(response.status)
       } return response.json()
-    })
+    });
 }
-export default fetchBreeds;
+
+function fetchCatByBreed(breedId) {
+const breed = `${url}/images/search&breed_ids=${breedId}`;
+return fetch(breed, key).then(response => {
+  if (!response.ok) {
+    throw new Error(response.status);
+  }
+  return response.json();
+});
+}
+export { fetchBreeds, fetchCatByBreed };

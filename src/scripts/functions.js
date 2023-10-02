@@ -28,12 +28,16 @@ function createMarkup({ id, name }) {
 select.addEventListener("change", onChangeBreed);
 
 function onChangeBreed(event) {
-  const breedID = event.currentTarget.value
-  fetchCatByBreed(breedID)
+  const breedId = event.currentTarget.value
+  fetchCatByBreed(breedId)
     .then(data => console.log(data))
     // .then(updateBreedList)
     .catch(onError);
 };
+
+function updateBreedCard({ url, name, description, temperament}) {
+  
+}
 
 function onError() {
     error.classList.toggle('is-hidden');

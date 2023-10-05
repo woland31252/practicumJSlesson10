@@ -1,11 +1,12 @@
-import { fetchBreeds, fetchCatByBreed } from "./api.js";
+import SlimSelect from 'slim-select';
+import { fetchBreeds, fetchCatByBreed } from './api.js';
 
-const select = document.querySelector(".breed-select");
-const catinfo = document.querySelector(".cat-info")
+const select = document.querySelector('.breed-select');
+const catinfo = document.querySelector('.cat-info');
 const loader = document.querySelector('.loader');
 const error = document.querySelector('.error');
 
-loader.classList.toggle("is-hidden");
+loader.classList.toggle('is-hidden');
 
 fetchBreeds()
   .then(data => {
@@ -15,30 +16,27 @@ fetchBreeds()
   .then(updateBreedList)
   .catch(onError);
 
-
 function updateBreedList(markup) {
-    select.innerHTML = markup;
-    loader.classList.toggle('is-hidden');
+  select.innerHTML = markup;
+  loader.classList.toggle('is-hidden');
 }
 
-function createMarkup({ id, name }) {
-    return `<option id="${id}">${name}</option>`;
+function createMarkup({ name, id }) {
+  return `<option id="${id}">${name}</option>`;
 }
 
-select.addEventListener("change", onChangeBreed);
+select.addEventListener('change', onChangeBreed);
 
 function onChangeBreed(event) {
-  const breedId = event.currentTarget.value
+  const breedId = event.currentTarget.value;
   fetchCatByBreed(breedId)
     .then(data => console.log(data))
     // .then(updateBreedList)
     .catch(onError);
-};
-
-function updateBreedCard({ url, name, description, temperament}) {
-  
 }
 
+function updateBreedCard({ url, breed }) {}
+
 function onError() {
-    error.classList.toggle('is-hidden');
+  error.classList.toggle('is-hidden');
 }

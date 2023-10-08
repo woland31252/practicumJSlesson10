@@ -51,11 +51,6 @@ body {
     
 }
 
-.breed-select {
-    width: 200px;
-    height: 30px;
-    border-radius: 5px;
-}
 
 /* .loader, .error {
     display: none;
@@ -76,4 +71,19 @@ body {
     clip-path: inset(100%);
     clip: rect(0 0 0 0);
     overflow: hidden;
+}
+
+.loader {
+    font-size: 0;
+    position: relative;
+    margin: 20% auto;
+    width: 250px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.breed-select {
+    display: none;
+    max-width: 600px;
+    margin: auto;
 }

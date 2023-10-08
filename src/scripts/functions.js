@@ -8,22 +8,27 @@ const error = document.querySelector('.error');
 
 loader.classList.toggle('is-hidden');
 
+let breedsId = [];
 fetchBreeds()
   .then(data => {
-    if (data.length === 0) throw new Error('No data');
-    return data.reduce((markup, elem) => createMarkup(elem) + markup, '');
+    data.forEach(element => {
+      breedsId.push({ text: element.name, value: element.id });
+      new SlimSelect ({
+        select: select,
+        data: breedsId,
+      })
+    });
   })
-  .then(updateBreedList)
   .catch(onError);
 
-function updateBreedList(markup) {
-  select.innerHTML = markup;
-  loader.classList.toggle('is-hidden');
-}
+// function updateBreedList(markup) {
+//   select.innerHTML = markup;
+//   loader.classList.toggle('is-hidden');
+// }
 
-function createMarkup({ name, id }) {
-  return `<option id="${id}">${name}</option>`;
-}
+// function createMarkup({ markup }) {
+//   return `<option id="${markup.id }">${markup.name}</option>`;
+// }
 
 select.addEventListener('change', onChangeBreed);
 
@@ -35,7 +40,7 @@ function onChangeBreed(event) {
     .catch(onError);
 }
 
-function updateBreedCard({ url, breed }) {}
+// function updateBreedCard({ url, breed }) {}
 
 function onError() {
   error.classList.toggle('is-hidden');

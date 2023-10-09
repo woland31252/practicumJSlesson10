@@ -37,12 +37,13 @@ select.addEventListener('change', onChangeBreed);
 function onChangeBreed(event) {
   const breedId = event.currentTarget.value;
   fetchCatByBreed(breedId)
-    .then(data => console.log(data))
-    // .then(updateBreedList)
+    .then(data => {
+      const { url, breeds } = data[0];
+      catinfo.innerHTML = `<div class = img-box><img class = "breed-img"src = "${url}" alt = "${breeds[0].name}" width = "100%"/></div><div class = breed-box><h1 class="breed-name">${breeds[0].name}</h1><p class="brred-description">${breeds[0].description}</p><h2 class="temperament-item">Temperament:</h2><p class="breed-temperament">${breeds[0].temperament}</p></div>`;
+    })
     .catch(onError);
 }
 
-// function updateBreedCard({ url, breed }) {}
 
 function onError() {
   error.classList.toggle('is-hidden');

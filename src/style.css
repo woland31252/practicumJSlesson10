@@ -19,10 +19,6 @@ ol {
     padding-left: 0;
 }
 
-button {cursor: pointer;
-margin: 0;}
-address {font-style: normal;}
-
 img {
     display: block;
 }
@@ -36,25 +32,12 @@ img {
 }
 
 body {
-    font-family: 'Roboto', 'sans-serif';
+    font-family: 'sans-serif';
     background-color: var(--main-color);
     letter-spacing: 0.03em;
-    font-size: 14px;
+    font-size: 24px;
     color: var(--thrid-title-color);
 }
-
-.container {
-    width: 1200px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin: 0 auto;
-    
-}
-
-
-/* .loader, .error {
-    display: none;
-} */
 
 .error {
     color: red;
@@ -86,4 +69,23 @@ body {
     display: none;
     max-width: 600px;
     margin: auto;
+}
+
+.img-box,
+.breed-box {
+    width: 600px;
+}
+
+.cat-info {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 25px;
+}
+
+.breed-img {
+    border-radius: 12px;
+}
+
+.temperament-item {
+    padding-top: 15px;
 }

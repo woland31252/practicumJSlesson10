@@ -1,6 +1,7 @@
 :root {
-    --main-color: #FFFFFF;
+    --main-color: gainsboro;
     --thrid-title-color: #212121;
+    --err-color: red;
 }
 
 p,
@@ -37,10 +38,16 @@ body {
     letter-spacing: 0.03em;
     font-size: 24px;
     color: var(--thrid-title-color);
+    line-height: 1.5;
+    position: relative;
 }
 
 .error {
-    color: red;
+    color: var(--err-color);
+    font-size: 36px;
+    position: absolute;
+    top: 70px;
+    left: 200px;
 }
 
 .is-hidden {
@@ -57,18 +64,17 @@ body {
 }
 
 .loader {
-    font-size: 0;
-    position: relative;
-    margin: 20% auto;
-    width: 250px;
-    display: flex;
-    justify-content: space-between;
+    font-size: 28px;
+    position: absolute;
+    width: 85%;
+    top: 60px;
+    left: 470px;
 }
 
 .breed-select {
     display: none;
     max-width: 600px;
-    margin: auto;
+    margin: 30px auto 0px;
 }
 
 .img-box,
@@ -79,7 +85,7 @@ body {
 .cat-info {
     display: flex;
     justify-content: space-around;
-    padding-top: 25px;
+    padding-top: 65px;
 }
 
 .breed-img {
@@ -88,4 +94,8 @@ body {
 
 .temperament-item {
     padding-top: 15px;
+}
+
+.div-hidden {
+    display: none;
 }

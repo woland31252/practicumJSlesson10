@@ -2,9 +2,10 @@
 // const instance = axios.create({
 //   baseURL: 'https://api.thecatapi.com/v1/breeds',
 // });
-// axios.defaults.headers.common['x-api-key'] 
-//   'live_eFQNzE6t9Yns8DpBqOnhUKvvvHPrVTd4nqMp4HJQUHmfMUGURXupaEMIop0eMOzH';
+
 const url = `https://api.thecatapi.com/v1`;
+// axios.defaults.headers.common['x-api-key'];
+// ('live_eFQNzE6t9Yns8DpBqOnhUKvvvHPrVTd4nqMp4HJQUHmfMUGURXupaEMIop0eMOzH');
 const key = {
   headers: {
     'x-api-key':
@@ -12,14 +13,7 @@ const key = {
   },
 };
 
-// function fetchBreeds() {
-//   return axios.get(instance)
-//     .then(response => {
-//       if (!response.ok) {
-//         throw new Error(response.status)
-//       } return response.json()
-//     });
-// }
+
 
 function fetchBreeds() {
   const breeds = `${url}/breeds`
